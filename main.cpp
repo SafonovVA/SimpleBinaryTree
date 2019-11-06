@@ -52,6 +52,20 @@ public:
         if (NODE->right)
             show(NODE->right);
     }
+    
+    void delete_tree(node<T> *node) {
+        if (node) {
+            if (node->left)
+                delete_tree(node->left);
+            if (node->right)
+                delete_tree(node->right);
+            delete node;
+        }
+    }
+
+    ~tree() {
+        delete_tree(root);
+    }
 };
 
 int main() {
